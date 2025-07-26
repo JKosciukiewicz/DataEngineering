@@ -1,6 +1,6 @@
 #!/bin/bash -l
 ## Nazwa zlecenia
-#SBATCH -J Combine channels
+#SBATCH -J Combine_channels
 ## Nazwa grantu do rozliczenia zu  ycia zasob  w CPU
 #SBATCH -A plgomenn-cpu
 ## Specyfikacja partycji
@@ -17,7 +17,7 @@
 #SBATCH --mem=32G
 ## przejscie do katalogu z ktorego wywolany zostal sbatch
 
-rm -rf /net/afscra/people/plgjkosciukiewi/datasets/bray_unzipped
+rm -rf /net/afscra/people/plgjkosciukiewi/datasets/bray_4_channel
 
 cd $HOME/DataEngineering
 source .venv/bin/activate
