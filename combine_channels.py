@@ -3,8 +3,8 @@ import numpy as np
 import tifffile
 from collections import defaultdict
 
-DATA_PATH = "/Volumes/Samsung SSD 990 EVO Plus 4TB/Datasets/bray"
-OUTPUT_PATH = "/Volumes/Samsung SSD 990 EVO Plus 4TB/Datasets/bray_4_channel"
+DATA_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray_unzipped"
+OUTPUT_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray_4_channel"
 
 CHANNELS = ["Hoechst", "ERSyto", "Ph_golgi", "Mito"]
 
