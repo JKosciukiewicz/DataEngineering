@@ -5,7 +5,7 @@ import numpy as np
 import tifffile
 from collections import defaultdict
 
-DATA_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray_unzipped"
+DATA_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray"
 OUTPUT_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray_4_channel"
 
 CHANNELS = ["Hoechst", "ERSyto", "Ph_golgi", "Mito"]
