@@ -24,7 +24,7 @@ plate_ids = set(f.split("-")[0] for f in zip_files if "-" in f)
 
 for plate_id in plate_ids:
     print(f"\nProcessing plate: {plate_id}")
-
+    os.makedirs(os.path.join(OUTPUT_PATH, plate_id), exist_ok=True)
     # Step 2: Unzip only the necessary channel folders
     channel_dirs = {}
     for channel in CHANNELS:
@@ -61,7 +61,7 @@ for plate_id in plate_ids:
                 stacked_channels = []
                 for channel in CHANNELS:
                     filename = image_maps[img_id][channel]
-                    img_path = os.path.join(channel_dirs[channel], filename)
+                    img_path = os.path.join(OUTPUT_PATH, plate_id, filename)
                     img = tifffile.imread(img_path)
                     stacked_channels.append(np.array(img))
 
