@@ -21,5 +21,5 @@ rm -rf /net/afscra/people/plgjkosciukiewi/datasets/bray_unzipped
 
 cd $HOME/DataEngineering
 source .venv/bin/activate
-python combine_channels.py
+python ./combine_channels.py
 
