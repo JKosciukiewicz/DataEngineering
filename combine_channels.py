@@ -6,11 +6,13 @@ import tifffile
 from collections import defaultdict
 
 DATA_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray"
+UNZIP_PATH ="/net/afscra/people/plgjkosciukiewi/datasets/bray_unzip"
 OUTPUT_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray_4_channel"
 
 CHANNELS = ["Hoechst", "ERSyto", "Ph_golgi", "Mito"]
 
 os.makedirs(OUTPUT_PATH, exist_ok=True)
+os.makedirs(UNZIP_PATH, exist_ok=True)
 
 def get_clean_id(filename):
     parts = filename.split("_")
@@ -34,7 +36,7 @@ for plate_id in plate_ids:
             break
 
         # Unzip into a temporary directory inside DATA_PATH
-        extract_path = os.path.join(DATA_PATH, f"{plate_id}-{channel}")
+        extract_path = os.path.join(UNZIP_PATH, f"{plate_id}-{channel}")
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(extract_path)
 
@@ -69,7 +71,7 @@ for plate_id in plate_ids:
             except Exception as e:
                 print(f"  Failed to process {img_id}: {e}")
 
-        # # Step 4: Clean up extracted directories
-        # for dir_path in channel_dirs.values():
-        #     shutil.rmtree(dir_path)
-        # print(f"  Cleaned up temporary folders for plate {plate_id}")
+        # Step 4: Clean up extracted directories
+        for dir_path in channel_dirs.values():
+            shutil.rmtree(dir_path)
+        print(f"  Cleaned up temporary folders for plate {plate_id}")
