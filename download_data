@@ -1,0 +1,9 @@
+#!/bin/bash
+
+plate=24277
+channels=("Hoechst")
+
+for channel in "${channels[@]}"; do
+    url="https://cildata.crbs.ucsd.edu/broad_data/plate_${plate}/${plate}-${channel}.zip"
+    wget "$url"
+done
