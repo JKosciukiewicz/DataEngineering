@@ -69,7 +69,7 @@ for plate_id in plate_ids:
             except Exception as e:
                 print(f"  Failed to process {img_id}: {e}")
 
-        # Step 4: Clean up extracted directories
-        for dir_path in channel_dirs.values():
-            shutil.rmtree(dir_path)
-        print(f"  Cleaned up temporary folders for plate {plate_id}")
+        # # Step 4: Clean up extracted directories
+        # for dir_path in channel_dirs.values():
+        #     shutil.rmtree(dir_path)
+        # print(f"  Cleaned up temporary folders for plate {plate_id}")

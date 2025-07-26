@@ -6,9 +6,9 @@
 ## Specyfikacja partycji
 #SBATCH -p plgrid
 ## Plik ze standardowym wyj ^{ciem
-#SBATCH --output="output.out"
+#SBATCH --output="data_output.out"
 ## Plik ze standardowym wyj ^{ciem b ^b ^yd  w
-#SBATCH --error="error.err"
+#SBATCH --error="data_error.err"
 ## Maksymalny czas trwania zlecenia (format HH:MM:SS)
 #SBATCH --time=72:00:00
 #SBATCH --nodes=1
