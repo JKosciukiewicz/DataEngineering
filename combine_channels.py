@@ -9,6 +9,10 @@ DATA_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray"
 UNZIP_PATH ="/net/afscra/people/plgjkosciukiewi/datasets/bray_unzip"
 OUTPUT_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray_4_channel"
 
+# DATA_PATH = "/Volumes/Samsung SSD 990 EVO Plus 4TB/Datasets/bray/archives"
+# UNZIP_PATH ="/Volumes/Samsung SSD 990 EVO Plus 4TB/Datasets/bray/bray_unzip"
+# OUTPUT_PATH = "/Volumes/Samsung SSD 990 EVO Plus 4TB/Datasets/bray/bray_4_channel"
+
 CHANNELS = ["Hoechst", "ERSyto", "Ph_golgi", "Mito"]
 
 os.makedirs(OUTPUT_PATH, exist_ok=True)
@@ -35,12 +39,10 @@ for plate_id in plate_ids:
             print(f"Missing zip file for channel {channel} in plate {plate_id}, skipping plate.")
             break
 
-        # Unzip into a temporary directory inside DATA_PATH
-        extract_path = os.path.join(UNZIP_PATH, f"{plate_id}-{channel}")
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(extract_path)
+            zip_ref.extractall(UNZIP_PATH)
 
-        channel_dirs[channel] = extract_path
+        channel_dirs[channel] = os.path.join(UNZIP_PATH, f"{plate_id}-{channel}")
     else:
         # Step 3: Process images once all channels are extracted
         image_maps = defaultdict(dict)
@@ -61,7 +63,7 @@ for plate_id in plate_ids:
                 stacked_channels = []
                 for channel in CHANNELS:
                     filename = image_maps[img_id][channel]
-                    img_path = os.path.join(OUTPUT_PATH, plate_id, filename)
+                    img_path = os.path.join(UNZIP_PATH, f"{plate_id}-{channel}", filename)
                     img = tifffile.imread(img_path)
                     stacked_channels.append(np.array(img))
 
