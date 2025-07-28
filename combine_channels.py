@@ -13,7 +13,7 @@ OUTPUT_PATH = "/net/afscra/people/plgjkosciukiewi/datasets/bray_4_channel"
 # UNZIP_PATH ="/Volumes/Samsung SSD 990 EVO Plus 4TB/Datasets/bray/bray_unzip"
 # OUTPUT_PATH = "/Volumes/Samsung SSD 990 EVO Plus 4TB/Datasets/bray/bray_4_channel"
 
-CHANNELS = ["Hoechst", "ERSyto", "Ph_golgi", "Mito"]
+CHANNELS = ["Hoechst", "ERSyto", "ERSytoBleed", "Ph_golgi", "Mito"]
 
 os.makedirs(OUTPUT_PATH, exist_ok=True)
 os.makedirs(UNZIP_PATH, exist_ok=True)
