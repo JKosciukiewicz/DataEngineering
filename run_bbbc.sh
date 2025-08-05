@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH -J Combine_channels
-#SBATCH -A plgomenn-cpu
+#SBATCH -A plgomenn-gpu-a100
 #SBATCH -p plgrid
 #SBATCH --output="data_output.out"
 #SBATCH --error="data_error.err"
