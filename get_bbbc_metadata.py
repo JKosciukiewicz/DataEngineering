@@ -17,8 +17,8 @@ for week_directory in sorted(os.listdir(OUTPUT_PATH)):
         if os.path.isdir(dir_path):
             for image in os.listdir(dir_path):
                 # Join with directory to get relative path
-                rel_path = os.path.join(directory, image)
+                rel_path = os.path.join(dir_path, image)
                 image_paths.append(rel_path)
 # Create DataFrame
-df = pd.DataFrame(image_paths, columns=["image_path"])
-df.to_csv(os.path.join(CSV_PATH,"bray_image_paths.csv"), index=False)
+df = pd.DataFrame(image_paths, columns=["Image_Name"])
+df.to_csv(os.path.join(CSV_PATH,"bbbc_image_paths.csv"), index=False)
