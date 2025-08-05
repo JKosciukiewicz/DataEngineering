@@ -21,4 +21,4 @@ for week_directory in sorted(os.listdir(OUTPUT_PATH)):
                 image_paths.append(rel_path)
 # Create DataFrame
 df = pd.DataFrame(image_paths, columns=["Image_Name"])
-df.to_csv(os.path.join(CSV_PATH,"bbbc_image_paths.csv"), index=False)
+df.to_csv(os.path.join(CSV_PATH,"bbbc_image_paths_2.csv"), index=False)
