@@ -12,8 +12,8 @@ image_paths = []
 # Walk through subdirectories
 for week_directory in sorted(os.listdir(OUTPUT_PATH)):
     week_path = os.path.join(OUTPUT_PATH, week_directory)
-    for dir in os.listdir(week_path):
-        dir_path = os.path.join(week_path, dir)
+    for directory in os.listdir(week_path):
+        dir_path = os.path.join(week_path, directory)
         if os.path.isdir(dir_path):
             for image in os.listdir(dir_path):
                 # Join with directory to get relative path
