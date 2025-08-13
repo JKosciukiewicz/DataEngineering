@@ -40,6 +40,8 @@ def convert_bbbc021_to_5channel(metadata_df, base_path, output_dir):
             well = row['Image_Metadata_Well_DAPI']
             img_num = row['ImageNumber']
 
+            print(five_channel.shape)
+
             output_file = f"{output_dir}/plate_{plate}_well_{well}_img_{img_num}.tiff"
             tifffile.imwrite(output_file, five_channel)
             output_paths.append(output_file)
