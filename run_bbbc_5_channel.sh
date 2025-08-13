@@ -9,5 +9,5 @@
 
 cd $HOME/DataEngineering
 source .venv/bin/activate
-python ./bbbbc_5channel.py
+python ./bbbbc_5channel_cloome.py
 
