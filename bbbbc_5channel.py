@@ -24,23 +24,21 @@ def convert_bbbc021_to_5channel(metadata_df, base_path, output_dir):
             tubulin = tifffile.imread(str(tubulin_path))
             actin = tifffile.imread(str(actin_path))
 
-            # Create 5-channel image (5, H, W)
+            # Create 5-channel image (H, W, 5)
             h, w = dapi.shape
-            five_channel = np.zeros((5, h, w), dtype=dapi.dtype)
+            five_channel = np.zeros((h, w, 5), dtype=dapi.dtype)
 
             # Map channels: DAPI->0, Tubulin->1, zeros->2, Actin->3, zeros->4
-            five_channel[0] = dapi      # Hoechst
-            five_channel[1] = tubulin   # ERSyto
-            # five_channel[2] = 0       # ERSytoBleed (already zeros)
-            five_channel[3] = actin     # Ph_golgi
-            # five_channel[4] = 0       # Mito (already zeros)
+            five_channel[:, :, 0] = dapi      # Hoechst
+            five_channel[:, :, 1] = tubulin   # ERSyto
+            # five_channel[:, :, 2] = 0       # ERSytoBleed (already zeros)
+            five_channel[:, :, 3] = actin     # Ph_golgi
+            # five_channel[:, :, 4] = 0       # Mito (already zeros)
 
             # Save as 5-channel TIFF
             plate = row['Image_Metadata_Plate_DAPI']
             well = row['Image_Metadata_Well_DAPI']
             img_num = row['ImageNumber']
-
-            print(five_channel.shape)
 
             output_file = f"{output_dir}/plate_{plate}_well_{well}_img_{img_num}.tiff"
             tifffile.imwrite(output_file, five_channel)
@@ -60,6 +58,7 @@ def convert_bbbc021_to_5channel(metadata_df, base_path, output_dir):
 
     print(f"Done! Converted {len(metadata_df)} images")
     print(f"Saved image paths to {output_dir}/converted_images.csv")
+
 
 
 # Usage:
