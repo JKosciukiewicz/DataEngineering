@@ -57,7 +57,7 @@ def convert_bbbc021_to_5channel(metadata_df, base_path, output_dir):
     output_df.to_csv(f"{output_dir}/converted_images.csv", index=False)
 
     print(f"Done! Converted {len(metadata_df)} images")
-    print(f"Saved image paths to {output_dir}/converted_images.csv"
+    print(f"Saved image paths to {output_dir}/converted_images.csv")
 
 
 
