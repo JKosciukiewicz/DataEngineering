@@ -5,7 +5,7 @@ from pathlib import Path
 
 CSV_PATH = "/net/tscratch/people/plgjkosciukiewi/bbbc021/BBBC021_v1_image.csv"
 DATA_DIR = "/net/tscratch/people/plgjkosciukiewi/bbbc021/extracted_bbbc021/"
-OUTPUT_DIR = "/net/tscratch/people/plgjkosciukiewi/bbbc021/BBBC_5_CHANNEL/"
+OUTPUT_DIR = "/net/tscratch/people/plgjkosciukiewi/bbbc021/BBBC_5_CHANNEL"
 
 def convert_bbbc021_to_5channel(metadata_df, base_path, output_dir):
     """Convert BBBC021 3-channel images to 5-channel format"""
